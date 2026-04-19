@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Main = () => {
+const Main = ({ tempMovieData, tempWatchedData, average }) => {
     const [movies, setMovies] = useState(tempMovieData);
     const [watched, setWatched] = useState(tempWatchedData);
     const [isOpen1, setIsOpen1] = useState(true);

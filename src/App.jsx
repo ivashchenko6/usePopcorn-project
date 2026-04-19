@@ -1,6 +1,7 @@
 import { useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Main from "./components/Main/Main";
+import "./index.css";
 
 const tempMovieData = [
     {
@@ -52,7 +53,11 @@ export default function App() {
         <>
             <NavBar />
 
-            <Main tempMovieData={tempMovieData} />
+            <Main
+                tempMovieData={tempMovieData}
+                tempWatchedData={tempWatchedData}
+                average={average}
+            />
         </>
     );
 }
