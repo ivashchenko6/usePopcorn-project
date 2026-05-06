@@ -1,13 +1,11 @@
 import { useState } from "react";
 import Search from "../Search/Search";
 
-const NavBar = () => {
+const NavBar = ({ children }) => {
     return (
         <nav className="nav-bar">
             <Logo />
-
-            <Search />
-            <NumResults />
+            {children}
         </nav>
     );
 };
@@ -20,13 +18,4 @@ const Logo = () => {
         </div>
     );
 };
-
-const NumResults = () => {
-    return (
-        <p className="num-results">
-            Found <strong>X</strong> results
-        </p>
-    );
-};
-
 export default NavBar;

@@ -2,6 +2,10 @@ import { useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import Main from "./components/Main/Main";
 import "./index.css";
+import Search from "./components/Search/Search";
+import ListBox from "./components/ListBox/ListBox";
+import WatchedBox from "./components/WatchedBox/WatchedBox";
+import MovieList from "./components/MovieList/MovieList";
 
 const tempMovieData = [
     {
@@ -49,15 +53,36 @@ const average = (arr) =>
     arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 export default function App() {
+    const [movies, setMovies] = useState(tempMovieData);
     return (
         <>
-            <NavBar />
+            <NavBar movies={movies}>
+                <Search />
+                <NumResults movies={movies} />
+            </NavBar>
 
             <Main
                 tempMovieData={tempMovieData}
                 tempWatchedData={tempWatchedData}
                 average={average}
-            />
+            >
+                <ListBox tempMovieData={tempMovieData}>
+                    <MovieList movies={movies} />
+                </ListBox>
+
+                <WatchedBox
+                    tempWatchedData={tempWatchedData}
+                    average={average}
+                />
+            </Main>
         </>
     );
 }
+
+const NumResults = ({ movies }) => {
+    return (
+        <p className="num-results">
+            Found <strong>{movies.length}</strong> results
+        </p>
+    );
+};
