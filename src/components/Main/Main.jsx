@@ -1,8 +1,8 @@
 import { useState } from "react";
-import ListBox from "../ListBox/ListBox";
+import ListBox from "../Box/Box";
 import WatchedBox from "../WatchedBox/WatchedBox";
 
-const Main = ({ tempMovieData, tempWatchedData, average, children }) => {
+const Main = ({ children }) => {
     return <main className="main">{children}</main>;
 };
 
